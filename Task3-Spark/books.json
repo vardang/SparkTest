@@ -1,0 +1,47 @@
+        {
+            "text": "Genre 1",
+            "Children": [
+                {
+                    "text": "Author 1-1",
+                    "Children": ["Book1-1", "Book1-2", "Book1-3"]
+                },
+                {
+                    "text": "Author 1-2",
+                    "Children": ["Book1-4", "Book1-5", "Book1-6"]
+                }
+            ]
+        }
+        
+        {
+            "text": "Genre 2",
+            "Children": [
+                {
+                    "text": "Author 2-1",
+                    "Children": ["Book2-1", "Book2-2", "Book2-3"]
+                },
+                {
+                    "text": "Author 2-2",
+                    "Children": ["Book2-4", "Book2-5", "Book2-6"]
+                }
+            ]
+        }
+        
+        {
+            "text": "Genre 3",
+            "Children": [
+                {
+                    "text": "Author 3-1",
+                    "Children": ["Book3-1", "Book3-2", "Book3-3"]
+                },
+                {
+                    "text": "Author 3-2",
+                    "Children": ["Book3-4", "Book3-5", "Book3-6"]
+                },
+                {
+                    "text": "Author 3-3",
+                    "Children": ["Book3-7", "Book3-8", "Book3-9"]
+                }
+            ]
+        }
+
+
