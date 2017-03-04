@@ -2,6 +2,7 @@ package com.vmware.interview.task3.main;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
@@ -24,8 +25,13 @@ public class BookDAO {
                 "    \"text\": \"Root\",\n" +
                 "    \"Children\": [";
         FindIterable<Document> books = booksCollection.find().projection(excludeId());
+        MongoCursor cursor = books.iterator();
         for (Document book : books) {
+            cursor.next();
             json += book.toJson();
+            if (cursor.hasNext()){
+                json += ",";
+            }
         }
         json += "]}";
         return json;

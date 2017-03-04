@@ -11,6 +11,8 @@ import spark.Spark;
 
 import java.io.IOException;
 
+import static Utils.JsonUtil.json;
+import static spark.Spark.after;
 import static spark.route.HttpMethod.get;
 
 /**
@@ -31,14 +33,19 @@ public class BookController {
 
     public BookController(String mongoURIString) throws IOException {
         final MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoURIString));
-        final MongoDatabase blogDatabase = mongoClient.getDatabase("booksTest");
+        final MongoDatabase blogDatabase = mongoClient.getDatabase("bookTest");
         bookDAO = new BookDAO(blogDatabase);
 
-        Spark.get(new Route("/") {
-            @Override
+        Spark.get("/", new Route() {
             public Object handle(final Request request, final Response response) {
                 return new BookDAO(blogDatabase).getBooks();
             }
+        });
+
+        Spark.get("/books", (req, res) -> new BookDAO(blogDatabase).getBooks());
+
+        after("/books", (req, res) -> {
+            res.type("application/json");
         });
 
     }
