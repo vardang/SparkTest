@@ -3,13 +3,13 @@
  */
 
 var navpanel = new Ext.tree.TreeLoader({
-    dataUrl:'http://localhost:4567/'
+    dataUrl: 'http://localhost:4567/'
 });
 
 var treePanel = new Ext.tree.TreePanel({
     id: 'tree-panel',
     title: 'Navigation',
-    region:'west',
+    region: 'west',
     width: 200,
     minSize: 150,
     autoScroll: true,
